@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProxyController {
     private final ServiceToClient client;
 
-    @GetMapping("/hello")
+    @GetMapping("/withNewToken")
     public ResponseEntity<String> proxy(){
-        return ResponseEntity.ok(client.fetchData());
+        return ResponseEntity.ok(client.fetchDataWithNewAccessToken());
+    }
+    @GetMapping("/withSameToken")
+    public ResponseEntity<String> proxy1(){
+        return ResponseEntity.ok(client.fetchDataWithSameAccessToken());
     }
 }
