@@ -53,7 +53,7 @@ public class ResourceclientApplication {
 	CommandLineRunner runner(OAuth2AuthorizedClientManager manager, RestTemplate template,
 			@Value("${service2.url}") String service2url) {
 		return args -> {
-			var authReq = OAuth2AuthorizeRequest.withClientRegistrationId("keyclock-client").principal("machine")
+			var authReq = OAuth2AuthorizeRequest.withClientRegistrationId("keycloak-client").principal("machine")
 					.build();
 			var client = manager.authorize(authReq);
 			var token = client.getAccessToken().getTokenValue();
